@@ -7,4 +7,5 @@ Weather of your destination is sometimes difficult to predict. This accurate wea
 - Wind speed
 - Humidity
 
+![Homepage](/public/Snapshot/Snapshot01.png)
 ![Homepage](/public/Snapshot/Snapshot.png)
