@@ -18,6 +18,7 @@ function App() {
     
     
     
+    
 
     if (statusWeatherData === "Clouds") {
       return <img className='status-image' src='./icons/clouds.png' alt='clouds' />
@@ -49,9 +50,10 @@ function App() {
   function handleSearchClick() {
 
     axios.get(`${apiUrl}${city}&appid=${apiKey}`)
-      .then((response) => {
-        setWeatherData(response.data)
-        setStatus('processed')
+    .then((response) => {
+      setWeatherData(response.data)
+      
+      setStatus('processed')
 
         setStatusWeatherData(response.data.weather[0].main)
 
@@ -104,7 +106,7 @@ function App() {
             <div className='col'>
               {weatherData.main && status === 'processed' ? (<img src='./icons/wind.png' alt='wind' />) : null}
               <div>
-                {weatherData.main && status === 'processed' ? (<p className='wind'>{weatherData.wind.speed} km/h</p>) : null}
+                {weatherData.main && status === 'processed' ? (<p className='wind'>{Math.round(weatherData.wind.speed * 3.6)} km/h</p>) : null}
                 {weatherData.main && status === 'processed' ? (<p className='speed'>Wind Speed</p>) : null}
               </div>
             </div>
